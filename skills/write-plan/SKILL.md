@@ -38,15 +38,22 @@ Otherwise, read from `docs/plans/` or ask the user for the design/requirements.
 - If the project is obvious from context (e.g., working in a repo tied to one project), confirm it with the user.
 - Otherwise, call `list_projects` and ask the user to pick.
 
-### Step 3: Parse into tasks
+### Step 3: Ask about TDD preference
+
+Before writing subtask descriptions, ask the user:
+> "Do you want subtasks written with TDD steps (write failing test first, then implement), or skip straight to implementation with a code quality review at the end?"
+
+- **TDD: yes** → use the TDD subtask template below
+- **TDD: no** → use the non-TDD subtask template below
+
+### Step 4: Parse into tasks
 
 Break the design into discrete implementation tasks. Each task should be:
 - 2-5 minutes of work per step
 - Independently testable
-- Following TDD (Red-Green-Refactor) cycle
 - Ordered by dependency (earlier tasks don't depend on later ones)
 
-### Step 4: Create the epic
+### Step 5: Create the epic
 
 Call `create_item` with:
 - `project`: selected project shortcode
@@ -76,7 +83,7 @@ Call `create_item` with:
 (Task identifiers will be filled after subtask creation)
 ```
 
-### Step 5: Create subtasks
+### Step 6: Create subtasks
 
 For each task, call `create_subtask` with:
 - `parentIdentifier`: the epic's identifier (e.g., `RD-50`)
@@ -84,7 +91,9 @@ For each task, call `create_subtask` with:
 - `title`: task title
 - `type`: `"task"`
 - `priority`: same as epic
-- `description`: full TDD step-by-step in this format:
+- `description`: use the template matching the user's TDD preference:
+
+**If TDD: yes** — use this format:
 
 ```markdown
 ## Task N: [Title]
@@ -121,11 +130,35 @@ Expected: PASS
 Message: "feat: [description]"
 ```
 
-### Step 6: Update epic description with task index
+**If TDD: no** — use this format:
+
+```markdown
+## Task N: [Title]
+
+**Files:**
+- Create/Modify: `exact/path/to/file.ts`
+
+**Step 1: Implement**
+
+\`\`\`typescript
+// full implementation code
+\`\`\`
+
+**Step 2: Verify**
+
+Run: `pnpm build` or `pnpm test:once path/to/test.ts`
+Expected: no errors / PASS
+
+**Step 3: Commit**
+
+Message: "feat: [description]"
+```
+
+### Step 7: Update epic description with task index
 
 After all subtasks are created, call `update_item` on the epic to fill in the `## Tasks` section with actual subtask identifiers (e.g., `RD-51`, `RD-52`, etc.).
 
-### Step 7: Report and transition
+### Step 8: Report and transition
 
 Report to user:
 ```
@@ -147,5 +180,5 @@ Offer to start execution: invoke `rainyday:execute-plan` with the epic identifie
 - **Complete code in descriptions** — not "add validation" but the actual code
 - **Exact file paths** — always
 - **Exact commands with expected output** — always
-- **DRY, YAGNI, TDD, frequent commits**
+- **DRY, YAGNI, frequent commits** — TDD when user opts in
 - **Task ordering** — earlier tasks should not depend on later ones

@@ -35,11 +35,13 @@ Task tool (subagent_type: "general-purpose"):
 
     Once you're clear on requirements:
     1. Follow the steps exactly as written in the task description
-    2. Write tests first (TDD — Step 1, Step 2)
-    3. Implement (Step 3, Step 4)
-    4. Commit (Step 5)
-    5. Self-review (see below)
-    6. Report back
+    2. **If TDD preference: yes** → follow TDD steps as written (write failing test first, watch it fail, then implement)
+       **If TDD preference: no** → implement directly, then run a code quality review before committing
+    3. Commit your work
+    4. Self-review (see below)
+    5. Report back
+
+    TDD preference: [TDD_YES_OR_NO]
 
     **While you work:** If you encounter something unexpected or unclear,
     **ask questions**. Don't guess or make assumptions.
@@ -63,10 +65,10 @@ Task tool (subagent_type: "general-purpose"):
     - Did I only build what was requested?
     - Did I follow existing patterns in the codebase?
 
-    **Testing:**
-    - Do tests actually verify behavior?
-    - Did I follow TDD (red then green)?
-    - Are tests comprehensive?
+    **Testing / Quality:**
+    - If TDD was used: did I write the test first and watch it fail? Do tests verify behavior (not just mock behavior)?
+    - If TDD was skipped: did I run a code quality review and address all issues?
+    - Is the implementation solid and correct?
 
     If you find issues during self-review, fix them now before reporting.
 

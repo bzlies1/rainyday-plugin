@@ -41,7 +41,14 @@ Use the branch name from the epic description if specified.
 
 Call `list_projects` and find the project's status definitions. You need:
 - The status ID with `category: "in_progress"` (for marking tasks started)
-- The status ID with `category: "done"` (for marking tasks complete)
+- The status ID for `in_review` (for marking tasks complete — done is set by human reviewers)
+
+### Step 3b: Ask about TDD preference
+
+Ask the user:
+> "Do you want implementer subagents to use TDD (write failing test first), or skip to implementation with a code quality review?"
+
+Record the answer — pass it as `TDD: yes` or `TDD: no` in every implementer prompt.
 
 ### Step 4: Execute subtasks
 
@@ -60,6 +67,7 @@ Use the Task tool with `subagent_type: "general-purpose"`:
   - Paste the FULL subtask description (from `get_item`) — do NOT make the subagent read from Rainyday
   - Include scene-setting context from the epic description
   - Include the working directory path
+  - Set `TDD preference: yes` or `TDD preference: no` based on user's answer from Step 3b
 
 #### 4c. Handle implementer questions
 
@@ -101,8 +109,8 @@ Use the Task tool with `subagent_type: "general-purpose"`:
 #### 4f. Verify and complete
 
 1. Invoke `rainyday:verify` — run tests, confirm they pass with evidence
-2. Call `update_item` on subtask: set status to the `done` status ID
-3. Call `add_comment` on subtask: `"Completed: [summary of what was implemented]. Files: [list]. Tests: [pass/fail count]."`
+2. Call `update_item` on subtask: set status to `in_review` — done is set by human reviewers
+3. Call `add_comment` on subtask: `"Completed: [summary of what was implemented]. Files: [list]. Tests: [pass/fail count]. Ready for review."`
 
 ### Step 5: Handle blockers
 
@@ -114,9 +122,10 @@ If a subtask is blocked:
 
 ### Step 6: Complete
 
-When all subtasks are done:
-1. Call `add_comment` on epic: `"All tasks completed. Ready for finishing."`
-2. Invoke `rainyday:finish-plan` with the epic identifier
+When all subtasks are in review:
+1. Call `update_item` on epic: set status to `in_review`
+2. Call `add_comment` on epic: `"All tasks complete and in review. Ready for finishing."`
+3. Invoke `rainyday:finish-plan` with the epic identifier
 
 ## Red Flags — NEVER
 
