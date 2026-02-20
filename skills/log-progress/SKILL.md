@@ -29,6 +29,8 @@ Log a progress update on a Rainyday item. Follow these steps:
 
 5. **Post the comment**: Call `add_comment` with the identifier and the composed comment.
 
-6. **Offer status update**: If recent commits suggest completion (e.g., subject lines containing "fix", "complete", "done"), ask the user if they want to move the item to a done status.
+6. **Update status on completion**: If recent commits suggest the task is complete (e.g., subject lines containing "fix", "complete", "done", "finish"), move the item to `in_review` — not `done`. Done is set by human reviewers after review. Inform the user the item has been moved to review.
+
+7. **Epic check**: If the item is part of a plan or epic, ask the user if all sibling tasks are now complete. If yes, offer to move the parent epic item to `in_review` as well.
 
 Keep comments factual and concise. Don't pad with filler text.

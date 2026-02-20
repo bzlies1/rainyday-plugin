@@ -25,9 +25,10 @@ Link the most recent git commit to any Rainyday items it references. Follow thes
    Use the short hash (first 7 chars) and the commit subject line.
 
 6. **Check for close/fix keywords**: If the commit message contains "closes [identifier]", "fixes [identifier]", or "resolves [identifier]":
-   - Extract the shortcode prefix from the identifier (e.g., `RD` from `RD-42`) and find the matching project in the `list_projects` response
-   - Identify the done-category status IDs for that project
-   - Ask the user if they want to move the item to done
-   - If yes, call `update_item` with the done status ID
+   - Call `list_projects` to get valid status IDs for the item's project
+   - Move the item to `in_review` (not `done`) — done is set by human reviewers after review
+   - Inform the user the item has been moved to review
 
-7. **Report**: Summarize which items were linked and any status changes made.
+7. **Epic check**: After moving tasks to `in_review`, ask the user if this was the last task in a plan or epic. If yes, offer to also move the epic item to `in_review`.
+
+8. **Report**: Summarize which items were linked and any status changes made.

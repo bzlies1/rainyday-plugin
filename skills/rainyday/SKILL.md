@@ -40,6 +40,28 @@ Status categories (for context): `backlog`, `todo`, `in_progress`, `done`, `canc
 | Assign someone | `assign_item` (requires their email) |
 | Break down an item into smaller pieces | `create_subtask` |
 
+## Loading These Tools
+
+Rainyday MCP tools are **deferred** — they do not exist until loaded. You MUST call `ToolSearch` before using any of them.
+
+The tools are registered with the prefix `mcp__rainyday__`. The short names in the table above (e.g. `get_item`) are what the server calls them — Claude Code sees them as `mcp__rainyday__get_item`.
+
+Use `select:` syntax for deterministic loading. Keyword searches may silently fail; `select:` is a direct lookup:
+
+```
+ToolSearch: select:mcp__rainyday__list_projects
+ToolSearch: select:mcp__rainyday__get_item
+ToolSearch: select:mcp__rainyday__update_item
+ToolSearch: select:mcp__rainyday__add_comment
+ToolSearch: select:mcp__rainyday__search_items
+ToolSearch: select:mcp__rainyday__create_item
+ToolSearch: select:mcp__rainyday__assign_item
+ToolSearch: select:mcp__rainyday__create_subtask
+ToolSearch: select:mcp__rainyday__list_items
+```
+
+Load only the tools you need. One `ToolSearch` call loads the tool immediately — you can call it right after.
+
 ## Error Recovery
 
 - **"Invalid identifier format"** — actual message includes the bad value and correct format. The identifier must be `PROJ-123` (2–4 uppercase letters, dash, number). Check for lowercase or missing dash.
