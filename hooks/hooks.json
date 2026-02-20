@@ -1,0 +1,16 @@
+{
+  "description": "Rainyday plugin hooks for credential setup and server build",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/check-credentials.sh",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
