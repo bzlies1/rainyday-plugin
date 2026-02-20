@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "rainyday": {
-      "command": "node",
-      "args": ["${CLAUDE_PLUGIN_ROOT}/server/dist/index.js"],
+      "command": "npx",
+      "args": ["@bzlies1/mcp-server"],
       "env": {
         "RAINYDAY_API_URL": "",
         "RAINYDAY_API_TOKEN": ""
