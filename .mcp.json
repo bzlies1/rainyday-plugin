@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "rainyday": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/dist/index.js"],
+      "env": {
+        "RAINYDAY_API_URL": "",
+        "RAINYDAY_API_TOKEN": ""
+      }
+    }
+  }
+}
