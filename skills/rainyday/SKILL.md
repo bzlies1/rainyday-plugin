@@ -42,17 +42,19 @@ Status categories (for context): `backlog`, `todo`, `in_progress`, `done`, `canc
 
 ## Error Recovery
 
-- **"Invalid identifier format"** — the identifier must be `PROJ-123` (uppercase letters, dash, number). Check for lowercase or missing dash.
-- **"Project not found"** — use `list_projects` to get the correct shortcode.
-- **"Item not found"** — check the number is within range. The error message tells you the valid range.
+- **"Invalid identifier format"** — actual message includes the bad value and correct format. The identifier must be `PROJ-123` (2–4 uppercase letters, dash, number). Check for lowercase or missing dash.
+- **"Project not found"** — actual message lists available shortcodes. Use one from that list.
+- **"Item not found"** — actual message states the valid range (e.g., `RD-1 through RD-47`). Use a number within that range.
 - **Status update fails or silently ignored** — status IDs are project-specific strings. Call `list_projects` to see valid IDs for the target project.
-- **Assignee not added** — the user must be a workspace member. The assignment is silently skipped if the email isn't found (check returned `assignees` array).
+- **Assignee not added** — the user must be a workspace member. The assignment is silently skipped if the email isn't found. The response from `assign_item` is the updated item — check its `assignees` array to confirm the assignment took effect.
 
 ## Important Notes
 
 - `dueDate` is a Unix timestamp in **milliseconds** (JavaScript `Date.now()` format), not seconds.
 - Comments are plain text. Use `add_comment` to log progress, decisions, or notes. Comments are visible to all workspace members.
 - Sub-tasks are one level deep only — you cannot create sub-tasks of sub-tasks.
+- **`create_subtask` known limitation:** The `parentIdentifier` field is passed by the MCP tool but is currently not handled by the REST API, so sub-tasks are created as top-level items. Verify after creation that the item appeared where expected.
+- **Initial status on `create_item`:** The MCP tool does not expose a `status` parameter for item creation. To set the status immediately after creation, use `update_item` with the returned identifier.
 
 ## Credential Reconfiguration
 
