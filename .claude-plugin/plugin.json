@@ -1,0 +1,12 @@
+{
+  "name": "rainyday",
+  "version": "1.0.0",
+  "description": "Rainyday project management integration for Claude Code",
+  "author": {
+    "name": "Terodato",
+    "url": "https://github.com/terodato"
+  },
+  "repository": "https://github.com/terodato/rainyday-plugin",
+  "license": "MIT",
+  "keywords": ["project-management", "mcp", "workflow", "kanban"]
+}

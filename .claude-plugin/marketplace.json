@@ -1,0 +1,21 @@
+{
+  "name": "rainyday-plugin",
+  "owner": {
+    "name": "Terodato"
+  },
+  "metadata": {
+    "description": "Rainyday project management integration for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "rainyday",
+      "source": "./",
+      "description": "Manage Rainyday projects, items, and workflows directly from Claude Code",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["project-management", "mcp", "workflow"],
+      "license": "MIT"
+    }
+  ]
+}
