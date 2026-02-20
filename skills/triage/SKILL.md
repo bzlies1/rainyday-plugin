@@ -9,9 +9,7 @@ user-invocable: true
 
 Triage the backlog for a Rainyday project. Follow these steps:
 
-1. **Identify project**: Use `$ARGUMENTS` as the project shortcode. If not provided, call `list_projects` and ask the user.
-
-2. **Get project info**: Call `list_projects` to get the valid statuses for this project. Identify which status IDs have category `backlog`.
+1. **Identify project and statuses**: Call `list_projects` to get all projects and their statuses. If `$ARGUMENTS` specifies a shortcode, find it in the results; otherwise ask the user which project to triage. From the same response, identify which status IDs have category `backlog` for the target project.
 
 3. **Fetch backlog items**: Call `list_items` with the project shortcode and the backlog status IDs.
 

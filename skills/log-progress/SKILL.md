@@ -16,7 +16,7 @@ Log a progress update on a Rainyday item. Follow these steps:
 
 3. **Gather git context**: Run these commands to understand recent work:
    - `git log --oneline -5` — recent commits
-   - `git diff --stat` — current uncommitted changes (if any)
+   - `git diff --stat` — uncommitted local changes (staged and unstaged — note these are not yet pushed)
 
 4. **Compose progress comment**: Based on the git context, write a concise progress update. Format:
 
@@ -29,6 +29,6 @@ Log a progress update on a Rainyday item. Follow these steps:
 
 5. **Post the comment**: Call `add_comment` with the identifier and the composed comment.
 
-6. **Offer status update**: If the work appears complete (e.g., "fix" commits, all tests passing), ask the user if they want to move the item to a done status.
+6. **Offer status update**: If recent commits suggest completion (e.g., subject lines containing "fix", "complete", "done"), ask the user if they want to move the item to a done status.
 
 Keep comments factual and concise. Don't pad with filler text.
