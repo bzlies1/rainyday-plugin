@@ -11,7 +11,6 @@ allowed-tools: Read, Bash(rm*)
 Complete the currently tracked Rainyday item. Follow these steps:
 
 0. **Load Rainyday tools**: Load these tools via ToolSearch before calling any Rainyday APIs:
-   - `select:mcp__rainyday__get_item`
    - `select:mcp__rainyday__list_projects`
    - `select:mcp__rainyday__update_item`
    - `select:mcp__rainyday__add_comment`
