@@ -17,7 +17,7 @@ Track a Rainyday item for this coding session. Follow these steps:
    - `select:mcp__rainyday__update_item`
    - `select:mcp__rainyday__add_comment`
 
-2. **Read the identifier**: Use `$ARGUMENTS` as the item identifier (e.g., `PER-22`). If not provided, tell the user to run `/rainyday:track <identifier>` with a valid identifier and stop.
+1. **Read the identifier**: Use `$ARGUMENTS` as the item identifier (e.g., `PER-22`). If not provided, tell the user to run `/rainyday:track <identifier>` with a valid identifier and stop.
 
 3. **Load the item**: Call `get_item` with the identifier. Display the following to orient the session:
    - Title
