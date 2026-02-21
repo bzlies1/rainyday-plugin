@@ -24,6 +24,8 @@ Always use the `PROJ-123` identifier format when referring to items. Never use i
 
 Status categories (for context): `backlog`, `todo`, `in_progress`, `done`, `cancelled`
 
+Standard status IDs (consistent across projects): `backlog`, `todo`, `in_progress`, `in_review`, `done`, `cancelled`. Note: `in_review` has category `in_progress` — both "In Progress" and "In Review" share that category. Always match by status ID, not category, when you need a specific column.
+
 ## Tool Selection Guide
 
 | Goal | Use |

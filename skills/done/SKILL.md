@@ -28,7 +28,7 @@ Complete the currently tracked Rainyday item. Follow these steps:
 
 4. **On confirm**:
    - Call `list_projects` to get valid status IDs for the item's project. Use the item's project shortcode (e.g., `PER` from `PER-22`) to find the matching project entry.
-   - Find the status with category `in_review` (this is the Review column — not `done`)
+   - Find the status with ID `in_review` (its category is `in_progress` — that's expected; it's distinct from the `in_progress` status)
    - Call `update_item` to set that status
    - Call `add_comment` with the message: `Work complete, moved to review`
    - Delete `.claude/current-task`:

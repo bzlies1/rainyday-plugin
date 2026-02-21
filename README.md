@@ -184,7 +184,8 @@ Claude can read these as context without making tool calls:
 - Each project has a **shortcode** (2–4 uppercase letters, e.g. `RD`, `MKTG`)
 - Each item has an **identifier**: `PROJ-123` (shortcode + sequential number)
 - **Statuses** are project-specific — always discover them via `list_projects`
-- Status categories: `backlog` · `todo` · `in_progress` · `in_review` · `done` · `cancelled`
+- Status categories: `backlog` · `todo` · `in_progress` · `done` · `cancelled`
+- Standard status IDs: `backlog` · `todo` · `in_progress` · `in_review` · `done` · `cancelled` — note `in_review` has category `in_progress`
 
 ---
 

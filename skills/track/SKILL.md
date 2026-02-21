@@ -28,7 +28,7 @@ Track a Rainyday item for this coding session. Follow these steps:
 
 4. **Move to In Progress**:
    - Call `list_projects` to get valid status IDs for the item's project. Use the item's project shortcode (e.g., `PER` from `PER-22`) to find the matching project entry.
-   - Find the status with category `in_progress`
+   - Find the status with ID `in_progress` (not `in_review` — both share the `in_progress` category, pick the one whose ID is literally `in_progress`)
    - Call `update_item` to set that status
 
 5. **Persist to `.claude/current-task`**: In the current working directory (not the plugin directory), write a file at `.claude/current-task` with two lines:
