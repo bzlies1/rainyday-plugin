@@ -50,9 +50,13 @@ Each `SKILL.md` contains frontmatter (`name`, `description`, `user-invocable`, `
 
 Key skills and their role:
 - `rainyday/SKILL.md` — background knowledge, auto-loaded, not user-invocable
-- `brainstorm` → `write-plan` → `execute-plan` → `finish-plan` — full planning lifecycle
-- `resume-plan` — re-enters execute-plan after session interruption
-- `verify` — extends `superpowers:verification-before-completion` with Rainyday status checks
+- `track` — start-of-session: load item details, move to In Progress, persist to `.claude/current-task`
+- `done` — end-of-session: move tracked item to Review, clear `.claude/current-task`
+- `log-progress` — post a git-context-aware progress comment on an item
+- `link-commit` — attach the latest commit to referenced Rainyday items
+- `create-item` — create a new item with duplicate checking
+- `sprint-review` — generate a project status report
+- `triage` — review and prioritize backlog items
 
 ### Hooks
 
