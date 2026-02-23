@@ -22,7 +22,7 @@
       "name": "trello",
       "source": "./plugins/trello",
       "description": "Token-efficient Trello management with 35 MCP tools covering boards, lists, cards, checklists, comments, attachments, labels, custom fields, and search",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "category": "productivity",
       "tags": ["trello", "project-management", "kanban", "mcp"],
       "license": "MIT"
