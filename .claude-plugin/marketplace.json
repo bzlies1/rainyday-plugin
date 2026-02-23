@@ -20,7 +20,7 @@
     },
     {
       "name": "trello",
-      "source": "bzlies1/trello-plugin",
+      "source": "./plugins/trello",
       "description": "Token-efficient Trello management with 35 MCP tools covering boards, lists, cards, checklists, comments, attachments, labels, custom fields, and search",
       "version": "1.0.0",
       "category": "productivity",

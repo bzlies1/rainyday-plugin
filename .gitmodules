@@ -1,0 +1,3 @@
+[submodule "plugins/trello"]
+	path = plugins/trello
+	url = git@github-personal:bzlies1/trello-plugin.git
