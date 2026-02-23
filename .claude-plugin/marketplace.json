@@ -5,8 +5,8 @@
     "url": "https://github.com/terodato"
   },
   "metadata": {
-    "description": "Rainyday project management integration for Claude Code",
-    "version": "1.0.2"
+    "description": "Productivity plugins for Claude Code — project management, Trello, and more",
+    "version": "1.1.0"
   },
   "plugins": [
     {
@@ -16,6 +16,15 @@
       "version": "1.0.2",
       "category": "productivity",
       "tags": ["project-management", "mcp", "workflow", "kanban"],
+      "license": "MIT"
+    },
+    {
+      "name": "trello",
+      "source": "bzlies1/trello-plugin",
+      "description": "Token-efficient Trello management with 35 MCP tools covering boards, lists, cards, checklists, comments, attachments, labels, custom fields, and search",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["trello", "project-management", "kanban", "mcp"],
       "license": "MIT"
     }
   ]
